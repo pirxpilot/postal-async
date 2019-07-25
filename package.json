@@ -1,0 +1,50 @@
+{
+  "name": "postal-async",
+  "version": "0.0.0",
+  "description": "Async NAPI based interface for libpostal.",
+  "author": {
+    "name": "Damian Krzeminski",
+    "email": "pirxpilot@furkot.com",
+    "url": "https://pirxpilot.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pirxpilot/postal-async.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "libpostal",
+    "postal"
+  ],
+  "dependencies": {
+    "@pirxpilot/cmake-js": "~5",
+    "bindings": "^1.5.0",
+    "node-addon-api": "^1.6.3",
+    "prebuild-install": "~5"
+  },
+  "devDependencies": {
+    "jshint": "~2",
+    "tap-dot": "~2",
+    "tape": "~4"
+  },
+  "scripts": {
+    "install": "prebuild-install --runtime napi || cmake-js build",
+    "prebuild": "make prebuild",
+    "test": "make check"
+  },
+  "files": [
+    "index.js",
+    "CMakeLists.txt",
+    "src"
+  ],
+  "binary": {
+    "napi_versions": [
+      2,
+      3,
+      4
+    ]
+  },
+  "cmake-js": {
+    "runtime": "napi"
+  }
+}
