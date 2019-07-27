@@ -29,3 +29,11 @@ test('should handle non-ASCII addresses correctly from Node', function(t) {
     t.end();
   });
 });
+
+test('should transliterate', function(t) {
+  expand('ул Каретный Ряд, д 4, строение 7', function(err, expansions) {
+    t.error(err);
+    t.ok(expansions.includes('ulitsa karetnyy ryad dom 4 stroyeniye 7'));
+    t.end();
+  });
+});
