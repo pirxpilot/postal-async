@@ -67,9 +67,29 @@ void ParseWorker::OnOK() {
 }
 
 Napi::Value Parse(const Napi::CallbackInfo& info) {
+  auto env = info.Env();
   auto len = info.Length();
+
+  if (len != 2) {
+    Napi::TypeError::New(env, "Wrong number of arguments")
+      .ThrowAsJavaScriptException();
+    return env.Undefined();
+  }
+
+  if (!info[0].IsString()) {
+    Napi::TypeError::New(env, "Need address to parse")
+      .ThrowAsJavaScriptException();
+    return env.Undefined();
+  }
+
+  if (!info[1].IsFunction()) {
+    Napi::TypeError::New(env, "Need callback function")
+      .ThrowAsJavaScriptException();
+    return env.Undefined();
+  }
+
   auto address = info[0].As<Napi::String>().Utf8Value();
-  auto fn = info[len - 1].As<Napi::Function>();
+  auto fn = info[1].As<Napi::Function>();
 
   (new ParseWorker(fn, address))->Queue();
 }
