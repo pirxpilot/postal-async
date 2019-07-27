@@ -54,12 +54,17 @@ void ParseWorker::Execute() {
 void ParseWorker::OnOK() {
   auto env = Env();
 
-  auto results = Napi::Object::New(env);
+  auto results = Napi::Array::New(env, response->num_components);
 
   for (int i = 0; i < response->num_components; i++) {
     const char *component = response->components[i];
     const char *label = response->labels[i];
-    results.Set(label, component);
+    auto o = Napi::Object::New(env);
+
+    o.Set("label", label);
+    o.Set("value", component);
+
+    results.Set(i, o);
   }
 
   libpostal_address_parser_response_destroy(response);

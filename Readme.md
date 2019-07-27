@@ -26,7 +26,7 @@ expand('781 Franklin Ave Crown Hts Brooklyn NY', function(err, expansions) {
 
 parse('781 Franklin Ave Crown Hts Brooklyn NY', function(err, parsed) {
   // parsed is an object with house_number, street etc.
-  assert(parsed.house_number === 781);
+  assert(parsed.find(({ value, label }) => label === 'house_number' && value === '781'));
 });
 
 ```
