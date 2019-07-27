@@ -88,7 +88,7 @@ Napi::Value Parse(const Napi::CallbackInfo& info) {
     return env.Undefined();
   }
 
-  auto address = info[0].As<Napi::String>().Utf8Value();
+  auto address = info[0].As<Napi::String>();
   auto fn = info[1].As<Napi::Function>();
 
   (new ParseWorker(fn, address))->Queue();
