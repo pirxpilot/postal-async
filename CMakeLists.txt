@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 2.8)
 
 set(BUILD_SHARED_LIBS ON CACHE BOOL "Build shared libraries")
 
-include(FindPkgConfig)
-
 # Name of the project (will be the name of the plugin)
 project(postal-async)
 
@@ -36,8 +34,20 @@ target_link_libraries(
   ${CMAKE_JS_LIB}
 )
 
-pkg_check_modules(POSTAL REQUIRED libpostal)
-include_directories(${POSTAL_INCLUDE_DIRS})
-set(LIBS ${LIBS} ${POSTAL_LIBRARIES})
+include(ExternalProject)
+
+ExternalProject_Add(libpostal
+  GIT_REPOSITORY    https://github.com/openvenues/libpostal
+  GIT_TAG           21601eb4
+  PATCH_COMMAND     <SOURCE_DIR>/bootstrap.sh
+  CONFIGURE_COMMAND <SOURCE_DIR>/configure --with-pic --disable-data-download --prefix=<INSTALL_DIR> --datadir=/var/lib
+)
+
+ExternalProject_Get_Property(libpostal INSTALL_DIR)
+
+add_dependencies(${PROJECT_NAME} libpostal)
+
+include_directories(${INSTALL_DIR}/include)
+set(LIBS ${LIBS} ${INSTALL_DIR}/lib/libpostal.a)
 
 target_link_libraries(${PROJECT_NAME} ${LIBS})
