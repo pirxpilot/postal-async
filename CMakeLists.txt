@@ -5,10 +5,6 @@ set(BUILD_SHARED_LIBS ON CACHE BOOL "Build shared libraries")
 # Name of the project (will be the name of the plugin)
 project(postal-async)
 
-if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-  add_definitions(-fno-builtin-memcmp)
-endif()
-
 add_definitions(-DNAPI_VERSION=${NAPI_VERSION})
 
 add_library(${PROJECT_NAME})
@@ -34,14 +30,32 @@ target_link_libraries(
   ${CMAKE_JS_LIB}
 )
 
+# build libtool
+
+set(POSTAL_DATA_DIR $ENV{POSTAL_DATA_DIR})
+set(POSTAL_DOWNLOAD_DATA $ENV{POSTAL_DOWNLOAD_DATA})
+
+if(NOT POSTAL_DATA_DIR)
+  set(POSTAL_DATA_DIR /var/lib)
+endif()
+
+set(POSTAL_CONFIG_OPTS )
+
 include(ExternalProject)
 
 ExternalProject_Add(libpostal
   GIT_REPOSITORY    https://github.com/openvenues/libpostal
   GIT_TAG           21601eb4
   PATCH_COMMAND     <SOURCE_DIR>/bootstrap.sh
-  CONFIGURE_COMMAND <SOURCE_DIR>/configure --with-pic --disable-data-download --prefix=<INSTALL_DIR> --datadir=/var/lib
+  CONFIGURE_COMMAND <SOURCE_DIR>/configure --prefix=<INSTALL_DIR> --disable-data-download --with-pic --datadir=${POSTAL_DATA_DIR}
 )
+
+if(POSTAL_DOWNLOAD_DATA)
+  ExternalProject_Add_Step(libpostal download-data
+    COMMAND <INSTALL_DIR>/bin/libpostal_data download all ${POSTAL_DATA_DIR}/libpostal
+    DEPENDEES install
+  )
+endif()
 
 ExternalProject_Get_Property(libpostal INSTALL_DIR)
 
