@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - "node"
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - libsnappy-dev
+cache:
+  directories:
+  - $HOME/data
+env:
+  POSTAL_DATA_DIR=~/data
+  POSTAL_DOWNLOAD_DATA=1
