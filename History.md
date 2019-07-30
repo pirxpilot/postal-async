@@ -1,4 +1,11 @@
 
+1.1.0 / 2019-07-30
+==================
+
+ * add travis CI config
+ * add `POSTAL_DATA_DIR` and `POSTAL_DOWNLOAD_DATA` env vars
+ * build libpostal as a part of the node add-on build
+
 1.0.1 / 2019-07-27
 ==================
 
