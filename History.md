@@ -1,4 +1,10 @@
 
+1.1.1 / 2020-04-21
+==================
+
+ * upgrade node-addon-api
+ * fix links to travis in Readme
+
 1.1.0 / 2019-07-30
 ==================
 
