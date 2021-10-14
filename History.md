@@ -1,4 +1,15 @@
 
+1.2.0 / 2021-10-14
+==================
+
+ * upgrade libpostal version to 1.1
+ * fix compiler warning
+ * fix cmake deprecation warning
+ * fix build for Ninja
+ * update node-addon-api 
+ * update prebuild-install
+ * update tap to ~5
+
 1.1.1 / 2020-04-21
 ==================
 
