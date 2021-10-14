@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8...3.13)
 
 set(BUILD_SHARED_LIBS ON CACHE BOOL "Build shared libraries")
 
