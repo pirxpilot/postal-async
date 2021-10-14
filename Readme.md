@@ -1,7 +1,5 @@
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
-[![Dependency Status][deps-image]][deps-url]
-[![Dev Dependency Status][deps-dev-image]][deps-dev-url]
 
 # postal-async
 
@@ -40,11 +38,5 @@ MIT © [Damian Krzeminski](https://pirxpilot.me)
 
 [travis-url]: https://travis-ci.com/pirxpilot/postal-async
 [travis-image]: https://img.shields.io/travis/com/pirxpilot/postal-async.svg
-
-[deps-image]: https://img.shields.io/david/pirxpilot/postal-async.svg
-[deps-url]: https://david-dm.org/pirxpilot/postal-async
-
-[deps-dev-image]: https://img.shields.io/david/dev/pirxpilot/postal-async.svg
-[deps-dev-url]: https://david-dm.org/pirxpilot/postal-async?type=dev
 
 [libpostal]: https://github.com/openvenues/libpostal
