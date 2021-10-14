@@ -48,6 +48,7 @@ ExternalProject_Add(libpostal
   GIT_TAG           21601eb4
   PATCH_COMMAND     <SOURCE_DIR>/bootstrap.sh
   CONFIGURE_COMMAND <SOURCE_DIR>/configure --prefix=<INSTALL_DIR> --disable-data-download --with-pic --datadir=${POSTAL_DATA_DIR}
+  BUILD_BYPRODUCTS <INSTALL_DIR>/lib/libpostal.a
 )
 
 if(POSTAL_DOWNLOAD_DATA)
