@@ -97,6 +97,7 @@ Napi::Value Parse(const Napi::CallbackInfo& info) {
   auto fn = info[1].As<Napi::Function>();
 
   (new ParseWorker(fn, address))->Queue();
+  return env.Undefined();
 }
 
 void CleanupParser() {
