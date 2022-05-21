@@ -41,6 +41,7 @@ endif()
 
 set(POSTAL_CONFIG_OPTS )
 
+set(IS_SSE_DISABLED )
 # SSE / SSE2 isn't available on all platforms; arm, arm64 and arm/M1 (aarch64) are such examples
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "^arm" OR CMAKE_SYSTEM_PROCESSOR MATCHES "^aarch64")
   set(IS_SSE_DISABLED --disable-sse2)
