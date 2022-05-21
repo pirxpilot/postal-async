@@ -36,7 +36,7 @@ MIT © [Damian Krzeminski](https://pirxpilot.me)
 [npm-image]: https://img.shields.io/npm/v/postal-async.svg
 [npm-url]: https://npmjs.org/package/postal-async
 
-[travis-url]: https://travis-ci.com/pirxpilot/postal-async
+[travis-url]: https://app.travis-ci.com/github/pirxpilot/postal-async
 [travis-image]: https://img.shields.io/travis/com/pirxpilot/postal-async.svg
 
 [libpostal]: https://github.com/openvenues/libpostal
