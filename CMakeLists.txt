@@ -41,13 +41,19 @@ endif()
 
 set(POSTAL_CONFIG_OPTS )
 
+set(IS_SSE_DISABLED )
+# SSE / SSE2 isn't available on all platforms; arm, arm64 and arm/M1 (aarch64) are such examples
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "^arm" OR CMAKE_SYSTEM_PROCESSOR MATCHES "^aarch64")
+  set(IS_SSE_DISABLED --disable-sse2)
+endif()
+
 include(ExternalProject)
 
 ExternalProject_Add(libpostal
   GIT_REPOSITORY    https://github.com/openvenues/libpostal
   GIT_TAG           9c975972
   PATCH_COMMAND     <SOURCE_DIR>/bootstrap.sh
-  CONFIGURE_COMMAND <SOURCE_DIR>/configure --prefix=<INSTALL_DIR> --disable-data-download --with-pic --datadir=${POSTAL_DATA_DIR}
+  CONFIGURE_COMMAND <SOURCE_DIR>/configure --prefix=<INSTALL_DIR> ${IS_SSE_DISABLED} --disable-data-download --with-pic --datadir=${POSTAL_DATA_DIR}
   BUILD_BYPRODUCTS <INSTALL_DIR>/lib/libpostal.a
 )
 
