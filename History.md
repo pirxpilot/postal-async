@@ -1,4 +1,10 @@
 
+1.2.1 / 2022-06-02
+==================
+
+ * add support for M1 and all ARM based platforms
+ * upgrade Node-API version to 8
+
 1.2.0 / 2021-10-14
 ==================
 
