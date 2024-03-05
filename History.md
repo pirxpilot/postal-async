@@ -1,4 +1,14 @@
 
+1.3.0 / 2024-03-05
+==================
+
+ * replace Travis CI with github actions
+ * upgrade prebuild-install to ~7
+ * upgrade node-addon-api to ~6
+ * upgrade libpostal version
+ * replace tape with node:test
+ * replace jshint with @pirxpilot/jshint
+
 1.2.1 / 2022-06-02
 ==================
 
