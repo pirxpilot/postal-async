@@ -9,7 +9,7 @@ lint:
 	./node_modules/.bin/jshint *.js test
 
 test: addon
-	./node_modules/.bin/tape test/*.js | ./node_modules/.bin/tap-dot
+	node --test
 
 $(ADDON): $(CC_SRC) CMakeLists.txt
 	./node_modules/.bin/cmake-js build
