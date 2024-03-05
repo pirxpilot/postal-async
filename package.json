@@ -23,7 +23,7 @@
     "prebuild-install": "~6"
   },
   "devDependencies": {
-    "jshint": "~2",
+    "@pirxpilot/jshint": "~3",
     "tap-dot": "~2",
     "tape": "~5"
   },
