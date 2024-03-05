@@ -51,7 +51,7 @@ include(ExternalProject)
 
 ExternalProject_Add(libpostal
   GIT_REPOSITORY    https://github.com/openvenues/libpostal
-  GIT_TAG           9c975972
+  GIT_TAG           8f2066b1
   PATCH_COMMAND     <SOURCE_DIR>/bootstrap.sh
   CONFIGURE_COMMAND <SOURCE_DIR>/configure --prefix=<INSTALL_DIR> ${IS_SSE_DISABLED} --disable-data-download --with-pic --datadir=${POSTAL_DATA_DIR}
   BUILD_BYPRODUCTS <INSTALL_DIR>/lib/libpostal.a

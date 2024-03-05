@@ -7,10 +7,7 @@
     "email": "pirxpilot@furkot.com",
     "url": "https://pirxpilot.me"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pirxpilot/postal-async.git"
-  },
+  "repository": "github:pirxpilot/postal-async",
   "license": "MIT",
   "keywords": [
     "libpostal",
@@ -19,13 +16,11 @@
   "dependencies": {
     "@pirxpilot/cmake-js": "~5",
     "bindings": "^1.5.0",
-    "node-addon-api": "~4",
-    "prebuild-install": "~6"
+    "node-addon-api": "~8",
+    "prebuild-install": "~7"
   },
   "devDependencies": {
-    "jshint": "~2",
-    "tap-dot": "~2",
-    "tape": "~5"
+    "@pirxpilot/jshint": "~3"
   },
   "scripts": {
     "install": "prebuild-install --runtime napi || cmake-js build",

@@ -1,5 +1,5 @@
 [![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
+[![Build Status][build-image]][build-url]
 
 # postal-async
 
@@ -33,10 +33,10 @@ parse('781 Franklin Ave Crown Hts Brooklyn NY', function(err, parsed) {
 
 MIT © [Damian Krzeminski](https://pirxpilot.me)
 
-[npm-image]: https://img.shields.io/npm/v/postal-async.svg
+[npm-image]: https://img.shields.io/npm/v/postal-async
 [npm-url]: https://npmjs.org/package/postal-async
 
-[travis-url]: https://app.travis-ci.com/github/pirxpilot/postal-async
-[travis-image]: https://img.shields.io/travis/com/pirxpilot/postal-async.svg
+[build-url]: https://github.com/pirxpilot/postal-async/actions/workflows/check.yaml
+[build-image]: https://img.shields.io/github/actions/workflow/status/pirxpilot/postal-async/check.yaml?branch=main
 
 [libpostal]: https://github.com/openvenues/libpostal
