@@ -7,7 +7,10 @@
     "email": "pirxpilot@furkot.com",
     "url": "https://pirxpilot.me"
   },
-  "repository": "github:pirxpilot/postal-async",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pirxpilot/postal-async.git"
+  },
   "license": "MIT",
   "keywords": [
     "libpostal",
