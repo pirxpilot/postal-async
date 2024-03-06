@@ -37,7 +37,7 @@
   ],
   "binary": {
     "napi_versions": [
-      8
+      9
     ]
   },
   "cmake-js": {
