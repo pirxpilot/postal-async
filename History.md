@@ -1,4 +1,10 @@
 
+1.3.1 / 2024-03-06
+==================
+
+ * upgrade napi version to 9
+ * fix repo definition in the package
+
 1.3.0 / 2024-03-05
 ==================
 
